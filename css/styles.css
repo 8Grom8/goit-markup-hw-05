@@ -117,7 +117,7 @@ body {
 }
 /* nav */
 .navigation-list-item {
-  
+  position:relative;
   color: var(--title-text-color);
   font-weight: 500;
   font-size: 14px;
@@ -129,6 +129,11 @@ body {
 .navigation-list-item:hover::after,
 .navigation-list-item:focus::after,
 .navigation-list-item:active::after {
+  position: absolute;
+  top: calc(100% - 3px);
+  left:0;
+  width:100%;
+  border-radius: 4px;
   display: block;
   content:"";
   height: 4px;
@@ -197,7 +202,7 @@ body {
   margin-bottom: 93px;
   background-image:linear-gradient(rgba(47, 48, 58, 0.4),
   rgba(47, 48, 58, 0.4)),
-  url("./images/img(99).jpg");
+  url("../images/Img\(99\).jpg");
   background-color: #2F303A;
   background-repeat: no-repeat;
   background-size: cover;
@@ -418,12 +423,41 @@ body {
 
 }
 .item {
+
+  transform: translateY(0);
+  position: relative;
+  background-color: white;
+  overflow: hidden;
+  
   width: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-top: 30px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.overlay-text {
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1.33;
+  letter-spacing: 0.09em;
+  transform: translateY(100%);
+  position: absolute;
+  background-color:rgba(33, 150, 243, 0.9);
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:0;
+  transition: 250ms ease;
+  color: var(--primary-white-color);
+  padding: 24px 63px;
+  text-align: center;
+
+    
+}
+.item:hover .overlay-text {
+  transform: translateY(0);
+}
 .item-content-wrapper {
   padding: 20px 20px;
   border: 1px solid #EEEEEE;
@@ -619,6 +653,7 @@ body {
   margin-bottom: 50px;
 }
 .backdrop {
+  
   position:fixed;
   top:0;
   left:0;
@@ -657,4 +692,3 @@ body {
   pointer-events: none;
 }
 
-/* Технокряк это современная площадка распространения коронавируса. Компании используют эту платформу для цифрового шпионажа и атак на защищённые сервера конкурентов. */
